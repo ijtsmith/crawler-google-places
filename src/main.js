@@ -31,18 +31,20 @@ Apify.main(async () => {
         startUrls, searchStringsArray = [], allPlacesNoSearchAction = '',
         // Geolocation
         lat, lng, country, state, county, city, postalCode, zoom, customGeolocation,
-        // browser and request options
-        pageLoadTimeoutSec = 60, useChrome = false, maxConcurrency, maxPagesPerBrowser = 1, maxPageRetries = 6,
-        // Misc
-        proxyConfig, debug = false, language = 'en', useStealth = false, headless = true,
+        
         // walker is undocumented feature added by jakubdrobnik, we need to test it and document it
         walker,
 
-        // Scraping options
-        includeHistogram = false, includeOpeningHours = false, includePeopleAlsoSearch = false,
-        maxReviews = 0, maxImages = 1, exportPlaceUrls = false, additionalInfo = false,
+        // These options are not in the schema to make it simpler but can still be used in JSON
+        includeHistogram = true, includeOpeningHours = true, includePeopleAlsoSearch = true,
+        additionalInfo = true,
+        pageLoadTimeoutSec = 60, useChrome = false, maxConcurrency = 100, maxPagesPerBrowser = 1, maxPageRetries = 6,
+        proxyConfig, debug = false, language = 'en', useStealth = false, headless = true,
+
+        // Scraping config
+        maxReviews = 0, maxImages = 1, exportPlaceUrls = false, 
         maxCrawledPlaces = 99999999, maxCrawledPlacesPerSearch = maxCrawledPlaces,
-        maxAutomaticZoomOut, reviewsTranslation = 'originalAndTranslated', oneReviewPerRow = false,
+        maxAutomaticZoomOut = 2, reviewsTranslation = 'originalAndTranslated', oneReviewPerRow = false,
         // For some rare places, Google doesn't show all reviews unless in newest sorting
         reviewsSort = 'newest', reviewsStartDate,
         // Fields used by Heyrick only, not present in the schema (too narrow use-case for now)
