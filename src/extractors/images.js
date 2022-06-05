@@ -69,7 +69,7 @@ module.exports.extractImages = async ({ page, maxImages, targetReviewsCount, pla
             await Promise.race([
 
                 // infiniteScroll(page, pageBottom, '.section-scrollbox', 1),
-                scrollTo(page, '.section-scrollbox', pageBottom),
+                scrollTo(page, '.dS8AEf', pageBottom),
                 Apify.utils.sleep(20000),
             ]);
             imageUrls = await page.evaluate(() => {
